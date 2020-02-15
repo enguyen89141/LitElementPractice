@@ -12,10 +12,9 @@ const VisibilityFilters = {
 };
 
 class TodoView extends LitElement {
-
   static get properties() {
     return {
-      todo: { type: Array },
+      todos: { type: Array },
       filter: { type: String },
       task: { type: String }
     }
@@ -30,6 +29,29 @@ class TodoView extends LitElement {
 
   render() {
     return html` 
+    
+    <style>
+        todo-view {
+          display: block;
+          max-width: 800px;
+          margin: 0 auto;
+        }
+        todo-view .input-layout {
+          width: 100%;
+          display: flex;
+        }
+        todo-view .input-layout vaadin-text-field {
+          flex: 1;
+          margin-right: var(--spacing);
+        }
+        todo-view .todos-list {
+          margin-top: var(--spacing);
+        }
+        todo-view .visibility-filters {
+          margin-top: calc(4 * var(--spacing));
+        }
+      </style>
+
       <div class="input-layout" @keyup="${this.shortcutListener}">
         <vaadin-text-field  
           placeholder="Task"
@@ -118,6 +140,10 @@ class TodoView extends LitElement {
     if (e.key === "Enter") {
       this.addTodo();
     }
+  }
+
+  createRenderRoot(){
+    return this;
   }
 }
 
