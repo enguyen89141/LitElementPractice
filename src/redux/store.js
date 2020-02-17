@@ -1,3 +1,4 @@
+//store is essentially the intermediary housing of the data for the views to call upon
 import { createStore } from 'redux';
 import { reducer } from './reducer.js';
 

@@ -1,6 +1,6 @@
 import nanoid from 'nanoid';
 
-
+//actions are similar to the methods in React's context API
 export const ADD_TODO = 'ADD_TODO';
 export const UPDATE_TODO_STATUS = 'UPDATE_TODO_STATUS';
 export const UPDATE_FILTER = 'UPDATE_FILTER';

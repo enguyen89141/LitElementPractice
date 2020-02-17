@@ -1,3 +1,4 @@
+//reducer is the way context is established in react. sort of the back end of the context API
 import { createSelector } from 'reselect';
 
 import { ADD_TODO, UPDATE_FILTER, UPDATE_TODO_STATUS, CLEAR_COMPLETED } from './actions';
