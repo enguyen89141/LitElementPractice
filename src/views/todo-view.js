@@ -1,4 +1,4 @@
-import { LitElement, html } from 'lit-element';
+import { html } from 'lit-element';
 import '@vaadin/vaadin-text-field';
 import '@vaadin/vaadin-button';
 import '@vaadin/vaadin-checkbox';
@@ -16,8 +16,9 @@ import {
   updateFilter,
   clearCompleted
 } from '../redux/actions.js';
+import { BaseView } from './base-view.js';
 
-class TodoView extends connect(store)(LitElement) {
+class TodoView extends connect(store)(BaseView) {
   static get properties() {
     return {
       todos: { type: Array },
@@ -130,10 +131,6 @@ class TodoView extends connect(store)(LitElement) {
 
   clearCompleted() {
     store.dispatch(clearCompleted());
-  }
-
-  createRenderRoot() {
-    return this;
   }
 }
 

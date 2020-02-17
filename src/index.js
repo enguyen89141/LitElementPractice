@@ -4,10 +4,11 @@ import { Router } from '@vaadin/router';
 
 window.addEventListener('load', () => {
   initRouter();
-})
+});
 
-function initRouter() { //basically React's BrowserRouter
+function initRouter() {
   const router = new Router(document.querySelector('main'));
+
   router.setRoutes([
     {
       path: '/',
@@ -16,14 +17,13 @@ function initRouter() { //basically React's BrowserRouter
     {
       path: '/stats',
       component: 'stats-view',
-      action: () => 
-        import(/* webpackChunkName: "stats" */ './views/stats-view')
+      action: () => import(/* webpackChunkName: "stats" */ './views/stats-view')
     },
     {
-      path: '.*', // just like the React router switch catch all to a 404 if no matched path is found
+      path: '(.*)',
       component: 'not-found-view',
-      action: () => 
+      action: () =>
         import(/* webpackChunkName: "not-found-view" */ './views/not-found-view')
-    },
-  ])
+    }
+  ]);
 }
